@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      // Intercept and handle any assignments to window.fetch to prevent the "Cannot set property fetch of #<Window> which has only a getter" TypeError
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          var fetchValue = originalFetch;
+          Object.defineProperty(window, 'fetch', {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+              return fetchValue;
+            },
+            set: function(val) {
+              fetchValue = val;
+            }
+          });
+        } catch (e) {
+          console.warn("Unable to patch window.fetch:", e);
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- PRIMARY SEO METADATA -->
+    <title>Tailwind Color Palette Generator & Contrast Analyzer</title>
+    <meta name="description" content="Surgical shade interpolation tool to generate custom Tailwind color palettes, analyze WCAG 2.1 color contrast compliance in real time, explore the official tailwindcss colors matrix, and decode cosmetics batch codes." />
+    <meta name="keywords" content="tailwind, tailwind colors, color palette generator, wcag contrast analyzer, color contrast calculator, color accessibility, cosmetic batch decoder, hex to tailwind, color scales, design system generator" />
+    <meta name="author" content="Tailwind Palette Tools" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- MOBILE & BROWSER THEMING -->
+    <meta name="theme-color" content="#6366F1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- OPEN GRAPH / FACEBOOK METADATA -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tailwind Color Palette Generator & WCAG Contrast Analyzer" />
+    <meta property="og:description" content="Generate beautiful Tailwind-compatible color palettes from any hex code. Instantly calculate WCAG 2.1 AA/AAA accessibility compliance, preview components, and export configs." />
+    <meta property="og:site_name" content="Tailwind Palette Tools" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+
+    <!-- TWITTER CARD METADATA -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tailwind Color Palette Generator & WCAG Contrast Analyzer" />
+    <meta name="twitter:description" content="Generate professional design system colors and verify accessibility rules in real time. Export ready-to-use Tailwind CSS v3/v4 configurations." />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- FONTS & PRECONNECTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- GOOGLE ADSENSE INTEGRATION -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3787510948967510" crossorigin="anonymous"></script>
+
+    <!-- SCHEMA.ORG STRUCTURED DATA FOR SEARCH ENGINES -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Tailwind Color Palette Generator & Contrast Analyzer",
+        "description": "An interactive web application to generate tailwind-compatible shade spectra from a base color, verify WCAG 2.1 AA/AAA contrast ratios, preview interface elements, and parse beauty batch codes.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires modern HTML5 and JavaScript compatible browsers",
+        "features": [
+          "Surgical custom shade interpolation for theme generation",
+          "Absolute WCAG 2.1 compliance contrast scoring",
+          "Official Tailwind CSS 22-scale interactive color matrix",
+          "Real-time sample components rendering",
+          "Automated cosmetics batch code serial decoder"
+        ]
+      }
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased font-sans">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

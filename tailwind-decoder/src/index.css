@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@keyframes item-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+    max-height: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    max-height: 100px;
+  }
+}
+
+@keyframes item-slide-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    max-height: 100px;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+    max-height: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    overflow: hidden;
+  }
+}
+
+.animate-item-entry {
+  animation: item-slide-in 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-item-exit {
+  animation: item-slide-out 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
