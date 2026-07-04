@@ -1,6 +1,0 @@
-{
-  "name": "Tailwind Color Palette & Contrast Generator",
-  "description": "A single-screen utility to generate custom Tailwind color palettes, analyze WCAG 2.1 contrast ratios, preview UI elements, and export configuration snippets.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
